@@ -1,3 +1,5 @@
+> 🚧 This page is currently under construction
+
 # Trigger Blueprint Action User Guide
 
 ## Quick Start
@@ -10,6 +12,8 @@
    - `Observe Dial Action`
    - `Observe Dial Value Action`
 3. Drag from the desired delegate (red box) and select **"Add Custom Event..."**
+   - Key Delegates: `OnKeyDown`, `OnKeyUp`
+   - Dial Delegates: `OnDialDown`, `OnDialRotate`, `OnDialUp`
 4. From the `Custom Event` node, trigger the desired Blueprint logic
 
 ### Updating Actions
