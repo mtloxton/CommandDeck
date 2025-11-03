@@ -52,6 +52,8 @@ The following verbosity levels are utilized by the Unreal plugin:
 
 > ℹ️ `Warning` is the default verbosity level.
 
+> ⚠️ You must restart the Unreal Engine after changing the verbosity level.
+
 > ⚠️ Using `Verbose` level logging may impact performance due to the increased volume of log messages.
 
 ## Locating the Stream Deck Plugin Logs
@@ -104,3 +106,5 @@ The following verbosity levels are utilized by the Command Deck plugin:
 - **`Verbose`** - Performance information
 
 > ℹ️ `Information` is the default verbosity level.
+
+> ⚠️ You must restart Stream Deck after changing the verbosity level.
