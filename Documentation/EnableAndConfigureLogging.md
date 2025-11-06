@@ -50,11 +50,11 @@ The following verbosity levels are utilized by the Unreal plugin:
 - **`Log`** - General information messages
 - **`Verbose`** - Detailed debugging and performance information
 
-> ℹ️ `Warning` is the default verbosity level.
+> ℹ️ `Warning` is the default verbosity level
 
-> ⚠️ You must restart the Unreal Engine after changing the verbosity level.
+> ⚠️ You must restart the Unreal Engine after changing the verbosity level
 
-> ⚠️ Using `Verbose` level logging may impact performance due to the increased volume of log messages.
+> ⚠️ Using `Verbose` level logging may impact performance due to the increased volume of log messages
 
 ## Locating the Stream Deck Plugin Logs
 
@@ -97,6 +97,8 @@ Open `App.Settings.json` and modify the `Serilog:MinimumLevel:Default` value wit
   }
 ```
 
+> ⚠️ Plugin updates will reset all values within App.Settings.json
+
 The following verbosity levels are utilized by the Command Deck plugin:
 
 - **`Error`** - Errors that break functionality and must be resolved
@@ -105,6 +107,6 @@ The following verbosity levels are utilized by the Command Deck plugin:
 - **`Debug`** - Detailed debugging information
 - **`Verbose`** - Performance information
 
-> ℹ️ `Information` is the default verbosity level.
+> ℹ️ `Information` is the default verbosity level
 
-> ⚠️ You must restart Stream Deck after changing the verbosity level.
+> ⚠️ You must restart Stream Deck after changing the verbosity level
