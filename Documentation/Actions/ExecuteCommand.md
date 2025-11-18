@@ -1,6 +1,6 @@
 > 💡 New to Command Deck? Check out the [Get Started with Command Deck](../InstallPlugins.md) guide for help with setup and installation.
 
-# <img src="ExecuteCommands.Assets/ExecuteCommandIcon.svg" alt="Execute Command Icon" width="32" height="32" style="vertical-align: bottom;"> Execute Command Action User Guide
+# <img src="ExecuteCommands.Assets/ExecuteCommandIcon.svg" alt="Execute Command Icon" width="28" height="28"> Execute Command Action User Guide
 
 The _Execute Command_ action provides a convenient way, as the name implies, to execute commands within the Unreal Engine!
 
@@ -28,7 +28,7 @@ To get started, simply add the _Execute Command_ action to your Stream Deck!
 
 > 💡 Dial Action: Pressing the dial will reset the sequence and apply the first value.
 
-> 💡 Dial Action: Rotating the dial counter-clockwise will apply the sequence in reverse order.
+> 💡 Dial Action: Rotating the dial counter-clockwise will apply the sequence values in reverse order.
 
 ## Setup through the Property Inspector
 
@@ -44,7 +44,7 @@ Like most _Command Deck_ actions, the status indicator allows you to immediately
 
 The _Execute Command_ action requires an active connection to the Unreal Engine editor (with the _Command Deck_ Unreal plugin enabled).
 
-This action has two states,<img src="ExecuteCommands.Assets/ExecuteCommandConnectedIcon.svg" alt="Execute Command Icon" width="32" height="32" style="vertical-align: middle;">_Connected_ and<img src="ExecuteCommands.Assets/ExecuteCommandDisconnectedIcon.svg" alt="Execute Command Icon" width="32" height="32" style="vertical-align: middle;">_Disconnected_.
+This action has two states, <img src="ExecuteCommands.Assets/ExecuteCommandConnectedIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Connected_ and <img src="ExecuteCommands.Assets/ExecuteCommandDisconnectedIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Disconnected_.
 
 > 💡 Need help getting connected? Follow the [Get Connected](../GetConnected.md) guide to resolve connection issues.
 
@@ -80,6 +80,6 @@ Let's take an example where _Command_ is set to `au.3dVisualize.ActiveSounds` an
 
 Once the end of the sequence is reached, the sequence will repeat.
 
-> ℹ️ Not all commands can be found in the _Suggestions_ combo box. For example, the command `viewmode` with sequence `unlit;lit;wireframe` is a perfectly legitimate command.
+> ℹ️ Not all commands can be found in the _Suggestions_ combo box. For example, the command `viewmode` with sequence `unlit;lit;wireframe` can be used to quickly switch the editor _View Mode_.
 
 > ℹ️ Commands of type `Setting` do not require a value. If a command of this type is specified, the _Sequence_ text box will be disabled.
