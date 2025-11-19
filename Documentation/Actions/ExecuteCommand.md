@@ -1,14 +1,16 @@
 > 💡 New to Command Deck? Check out the [Get Started with Command Deck](../InstallPlugins.md) guide for help with setup and installation.
 
-# <img src="ExecuteCommands.Assets/ExecuteCommandIcon.svg" alt="Execute Command Icon" width="28" height="28"> Execute Command Action User Guide
+> 💬 We'd love to hear from you! Join our [Discord server](https://go.commanddeck.io/docs.feedback) and let us know how we can improve.
+
+# <img src=".Assets.ExecuteCommand/ExecuteCommandIcon.svg" alt="Execute Command Icon" width="28" height="28"> Execute Command User Guide
 
 The _Execute Command_ action provides a convenient way, as the name implies, to execute commands within the Unreal Engine!
 
-Setup is a breeze, with automatic suggestions of known commands and helpful information about commands shown directly in Stream Deck. 
+Setup is a breeze, with automatic suggestions of known commands and helpful information shown directly in Stream Deck. 
 
-To get started, simply add the _Execute Command_ action to your Stream Deck!
+To get started, simply add the _Execute Command_ action to your Stream Deck then specify a _Command_ and _Sequence_. That's it!
 
-<img src="ExecuteCommands.Assets/ExecuteCommandAction.png" alt="Execute Command Action">
+<img src=".Assets.ExecuteCommand/ExecuteCommandAction.png" alt="Execute Command Action">
 
 ## Table of Contents
 
@@ -26,7 +28,7 @@ To get started, simply add the _Execute Command_ action to your Stream Deck!
 
 > 💡 Key Action: Use _Multi Action_ to execute multiple commands with a single press. Learn more about Multi Actions here: [help.elgato.com](https://help.elgato.com/hc/en-us/articles/360027960912-Elgato-Stream-Deck-Multi-Actions)
 
-> 💡 Dial Action: Pressing the dial will reset the sequence and apply the first value.
+> 💡 Dial Action: Pressing the dial will both reset the sequence and apply the first value.
 
 > 💡 Dial Action: Rotating the dial counter-clockwise will apply the sequence values in reverse order.
 
@@ -44,7 +46,7 @@ Like most _Command Deck_ actions, the status indicator allows you to immediately
 
 The _Execute Command_ action requires an active connection to the Unreal Engine editor (with the _Command Deck_ Unreal plugin enabled).
 
-This action has two states, <img src="ExecuteCommands.Assets/ExecuteCommandConnectedIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Connected_ and <img src="ExecuteCommands.Assets/ExecuteCommandDisconnectedIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Disconnected_.
+This action has two states, <img src="../.Assets.Shared/ConnectedStatusIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Connected_ and <img src="../.Assets.Shared/DisconnectedStatusIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Disconnected_.
 
 > 💡 Need help getting connected? Follow the [Get Connected](../GetConnected.md) guide to resolve connection issues.
 
@@ -56,7 +58,7 @@ If the _Command_ text matches a known command in the engine, additional informat
 
 <table>
 <tr>
-<td><img src="ExecuteCommands.Assets/KnownCommand.png" alt="Known Command Example"></td>
+<td><img src=".Assets.ExecuteCommand/KnownCommand.png" alt="Known Command Example"></td>
 <td><em>Example showing additional information for the <code>au.3dVisualizeActiveSounds</code> command</em></td>
 </tr>
 </table>
@@ -67,19 +69,21 @@ If the _Command_ text partially matches any known commands, the _Suggestions_ co
 
 <table>
 <tr>
-<td><img src="ExecuteCommands.Assets/SuggestedCommands.png" alt="Suggested Commands Example"></td>
+<td><img src=".Assets.ExecuteCommand/SuggestedCommands.png" alt="Suggested Commands Example"></td>
 <td><em>Example showing the suggested commands that partially match the <code>au.3d</code> text from the</em> Command <em>text box</em></td>
 </tr>
 </table>
 
 ### Sequence
 
-The _Sequence_ text box is where the command value is specified. As the name implies, a sequence of values can be defined that is applied (in order) every time the action is activated.
+The _Sequence_ text box is where one or more values can be specified. As the name implies, a sequence of values can be defined that is applied (in order) every time the action is activated.
+
+> 💡 Use the `;` character as a delimeter to define a sequence of values, e.g. `true;false` or `0;1;2;3`.
 
 Let's take an example where _Command_ is set to `au.3dVisualize.ActiveSounds` and _Sequence_ is set to `0;1;2;3`, and the action is assigned to a Stream Deck Key. On the first press of the key, `au.3dVisualizeActiveSounds 0` is sent to the Unreal Engine. The second press of the key will send `au.3dVisualizeActiveSounds 1`, and so on.
 
 Once the end of the sequence is reached, the sequence will repeat.
 
-> ℹ️ Not all commands can be found in the _Suggestions_ combo box. For example, the command `viewmode` with sequence `unlit;lit;wireframe` can be used to quickly switch the editor _View Mode_.
+> ℹ️ Commands that are not registered will not appear in the _Suggestions_ combo box. However, they can still be used with the _Execute Command_ action! For example, the command `viewmode` is not registered, but can still be used with a sequence such as `unlit;lit;wireframe` to quickly switch the editor _View Mode_.
 
 > ℹ️ Commands of type `Setting` do not require a value. If a command of this type is specified, the _Sequence_ text box will be disabled.

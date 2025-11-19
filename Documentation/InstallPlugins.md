@@ -10,7 +10,7 @@ Open the Epic Launcher and navigate to the Library tab. The `Command Deck` plugi
 
 Launch the Unreal Editor and from the top menu select Edit > Plugins. Find `Command Deck` in the list of plugins, and ensure that it has been enabled (indicated by the checkbox).
 
-![Unreal Editor Plugin](GetStarted.Assets/UnrealEditorPlugin.png)
+![Unreal Editor Plugin](.Assets.GetStarted/UnrealEditorPlugin.png)
 
 # Stream Deck Plugin Install
 
@@ -24,7 +24,7 @@ Download and install the `Command Deck - Unreal` Stream Deck plugin from the Elg
 
 Once the plugin has been installed, `Command Deck - Unreal` should appear in the list of plugins.
 
-![Unreal Editor Plugin](GetStarted.Assets/StreamDeckPluginList.png)
+![Unreal Editor Plugin](.Assets.GetStarted/StreamDeckPluginList.png)
 
 # Action Install
 
