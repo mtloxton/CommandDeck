@@ -21,7 +21,7 @@ Follow the below steps to resolve any connection issues you may be experiencing!
 
 ## 1. Check the Connection Status
 
-Actions that require this connection have a "status" indicator in their property inspector that will be in one of two states, <img src=".Assets.Shared/ConnectedStatusIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Connected_ or <img src=".Assets.Shared/DisconnectedStatusIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Disconnected_.
+Actions that require a connection have a "status" indicator in their property inspector that will be in one of two states, <img src=".Assets.Shared/ConnectedStatusIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Connected_ or <img src=".Assets.Shared/DisconnectedStatusIcon.svg" alt="Execute Command Icon" width="20" height="20"> _Disconnected_.
 
 To check the status of an action, select the action assigned to an active Stream Deck profile to reveal its property inspector.
 
