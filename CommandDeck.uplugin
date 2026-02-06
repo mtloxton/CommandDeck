@@ -11,7 +11,7 @@
 	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/c9cd0b52-299b-4e76-8c53-bba41f2d1eba",
 	"SupportURL": "https://go.commanddeck.io/uep.support",
 	"CanContainContent": true,
-	"EngineVersion": "5.7.0",
+	"EngineVersion": "4.27.0",
 	"IsBetaVersion": true,
 	"IsExperimentalVersion": false,
 	"Installed": false,
