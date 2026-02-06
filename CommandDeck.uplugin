@@ -1,0 +1,36 @@
+﻿{
+	"FileVersion": 3,
+	"Version": 80000,
+	"VersionName": "0.8.0.0",
+	"FriendlyName": "Command Deck",
+	"Description": "Accelerate everyday workflows with your Elgato Stream Deck",
+	"Category": "Engine Tools",
+	"CreatedBy": "Loxton Enterprises, Inc.",
+	"CreatedByURL": "https://go.commanddeck.io/uep.createdby",
+	"DocsURL": "https://go.commanddeck.io/uep.docs",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/c9cd0b52-299b-4e76-8c53-bba41f2d1eba",
+	"SupportURL": "https://go.commanddeck.io/uep.support",
+	"CanContainContent": true,
+	"EngineVersion": "5.7.0",
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CommandDeckCore",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "CommandDeck",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}
