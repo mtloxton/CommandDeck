@@ -17,6 +17,22 @@
 
 namespace
 {
+	bool KAreNumericStringsEqual(const FString& InLhs, const FString& InRhs)
+	{
+		if (InLhs.Equals(InRhs, ESearchCase::CaseSensitive))
+		{
+			return true;
+		}
+
+		float Value1, Value2;
+		if (FDefaultValueHelper::ParseFloat(InLhs, Value1) && FDefaultValueHelper::ParseFloat(InRhs, Value2))
+		{
+			return FMath::IsNearlyEqual(Value1, Value2);
+		}
+
+		return false;
+	}
+
 	FString KGetAdjacentValueInList(const FString& InDelimitedList, const FString& InCurrentValue, const FString& InDelimiterValue, bool bInForwardDirection)
 	{
 		TArray<FString> values;
@@ -27,7 +43,16 @@ namespace
 			return FString();
 		}
 
-		int32 Index = values.IndexOfByKey(InCurrentValue);
+		int32 Index = INDEX_NONE;
+
+		for (int32 i = 0; i < values.Num(); ++i)
+		{
+			if (KAreNumericStringsEqual(values[i], InCurrentValue))
+			{
+				Index = i;
+				break;
+			}
+		}
 
 		if (Index == INDEX_NONE)
 		{
@@ -157,6 +182,11 @@ FCommandDeckExecuteCommand::FCommandDeckExecuteCommand(const FString& InUuid, co
 		{
 			FCommandDeckModule::GetPlugin()->SendToApp(*this, "beginPIE");
 		});
+
+	EndPIEDelegateHandle = FEditorDelegates::EndPIE.AddLambda([this](const bool bIsSimulating)
+		{
+			FCommandDeckModule::GetPlugin()->SendToApp(*this, "endPIE");
+		});
 #endif
 }
 
@@ -168,6 +198,12 @@ FCommandDeckExecuteCommand::~FCommandDeckExecuteCommand()
 	{
 		FEditorDelegates::BeginPIE.Remove(BeginPIEDelegateHandle);
 		BeginPIEDelegateHandle.Reset();
+	}
+
+	if (EndPIEDelegateHandle.IsValid())
+	{
+		FEditorDelegates::EndPIE.Remove(EndPIEDelegateHandle);
+		EndPIEDelegateHandle.Reset();
 	}
 #endif
 }

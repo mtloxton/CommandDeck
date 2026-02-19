@@ -20,6 +20,8 @@ private:
 	FString CachedValue;
 
 	FDelegateHandle BeginPIEDelegateHandle;
+
+	FDelegateHandle EndPIEDelegateHandle;
 };
 
 UE_REGISTER_COMMAND_DECK_ACTION("io.mudall.command-deck.unreal.execute-command", FCommandDeckExecuteCommand)

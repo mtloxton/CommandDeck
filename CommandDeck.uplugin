@@ -1,7 +1,7 @@
 ﻿{
 	"FileVersion": 3,
-	"Version": 80000,
-	"VersionName": "0.8.0.0",
+	"Version": 80300,
+	"VersionName": "0.8.3.0",
 	"FriendlyName": "Command Deck",
 	"Description": "Accelerate everyday workflows with your Elgato Stream Deck",
 	"Category": "Engine Tools",
