@@ -51,6 +51,8 @@ Once the plugin has been installed, `Command Deck - Unreal` will appear in the l
 
 ![Unreal Editor Plugin](Docs/.Assets.GetStarted/StreamDeckPluginList.png)
 
+> ℹ️ If the plugin installation fails, try restarting the Stream Deck application.
+
 ## 5. Start Creating!
 
 You are now ready to start adding actions to your Stream Deck device!

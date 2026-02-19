@@ -39,11 +39,6 @@ void FTriggerBlueprintActionManager::Initialize()
 
 	FWorldDelegates::OnPostWorldInitialization.AddStatic(&FTriggerBlueprintActionManager::OnPostWorldInitialize);
 
-	FWorldDelegates::OnPostWorldInitialization.AddLambda([this](UWorld* InWorld, const UWorld::InitializationValues InInitValues)
-	{
-		UpdatePropertyInspector();
-	});
-
 	FWorldDelegates::OnPostWorldCleanup.AddLambda([this](UWorld* InWorld, bool InSessionEnded, bool bInCleanupResources)
 	{
 		if (Worlds.Contains(InWorld))
@@ -249,35 +244,35 @@ void FTriggerBlueprintActionManager::UpdatePropertyInspector()
 	{
 		TArray<TSharedPtr<FJsonValue>> identifierJsonArray;
 
-		if (Pair.Value.IsPropertyInspectorVisible)
+		if (!Pair.Value.IsPropertyInspectorVisible)
+			continue;
+
+		for (TPair<FString, FCommandDeckActionEntry>& actionEntry : IdentifierToEntryMap)
 		{
-			for (TPair<FString, FCommandDeckActionEntry>& actionEntry : IdentifierToEntryMap)
-			{
-				TSharedRef<FJsonObject> callbacksJson = MakeShared<FJsonObject>();
+			TSharedRef<FJsonObject> callbacksJson = MakeShared<FJsonObject>();
 
-				auto* keyDownCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::KeyDown);
-				callbacksJson->SetNumberField("keyDown", keyDownCallbacks ? keyDownCallbacks->Num() : 0);
+			auto* keyDownCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::KeyDown);
+			callbacksJson->SetNumberField("keyDown", keyDownCallbacks ? keyDownCallbacks->Num() : 0);
 
-				auto* keyUpCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::KeyUp);
-				callbacksJson->SetNumberField("keyUp", keyUpCallbacks ? keyUpCallbacks->Num() : 0);
+			auto* keyUpCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::KeyUp);
+			callbacksJson->SetNumberField("keyUp", keyUpCallbacks ? keyUpCallbacks->Num() : 0);
 
-				auto* dialDownCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::DialDown);
-				callbacksJson->SetNumberField("dialDown", dialDownCallbacks ? dialDownCallbacks->Num() : 0);
+			auto* dialDownCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::DialDown);
+			callbacksJson->SetNumberField("dialDown", dialDownCallbacks ? dialDownCallbacks->Num() : 0);
 
-				auto* dialRotateCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::DialRotate);
-				callbacksJson->SetNumberField("dialRotate", dialRotateCallbacks ? dialRotateCallbacks->Num() : 0);
+			auto* dialRotateCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::DialRotate);
+			callbacksJson->SetNumberField("dialRotate", dialRotateCallbacks ? dialRotateCallbacks->Num() : 0);
 
-				auto* dialUpCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::DialUp);
-				callbacksJson->SetNumberField("dialUp", dialUpCallbacks ? dialUpCallbacks->Num() : 0);
+			auto* dialUpCallbacks = actionEntry.Value.Callbacks.Find(ECommandDeckActionEventType::DialUp);
+			callbacksJson->SetNumberField("dialUp", dialUpCallbacks ? dialUpCallbacks->Num() : 0);
 
-				TSharedRef<FJsonObject> identifierJson = MakeShared<FJsonObject>();
+			TSharedRef<FJsonObject> identifierJson = MakeShared<FJsonObject>();
 
-				identifierJson->SetStringField("identifier", actionEntry.Key);
-				identifierJson->SetObjectField("callbacks", callbacksJson);
-				identifierJson->SetStringField("binding", (actionEntry.Value.Binding != nullptr) ? "true" : "false");
+			identifierJson->SetStringField("identifier", actionEntry.Key);
+			identifierJson->SetObjectField("callbacks", callbacksJson);
+			identifierJson->SetStringField("binding", (actionEntry.Value.Binding != nullptr) ? "true" : "false");
 
-				identifierJsonArray.Add(MakeShared<FJsonValueObject>(identifierJson));
-			}
+			identifierJsonArray.Add(MakeShared<FJsonValueObject>(identifierJson));
 		}
 
 		TSharedRef<FJsonObject> sendToAppPayload = MakeShared<FJsonObject>();
