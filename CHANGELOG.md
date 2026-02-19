@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.8.3.0
+
+- Added “Execute on Session End” automation option to Execute Command action
+- Improved rendering of Execute Command action on both key and dial controllers
+
 ## 0.8.0.0
 
-- Source code now available on GitHub! (see Additional Links below)
 - Added new action: Execute UI Command (Beta)
 - Added automation options to the Execute Command action
 - Added visual orientation option to the Trigger Blueprint action

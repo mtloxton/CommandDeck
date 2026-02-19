@@ -138,9 +138,5 @@ void FCommandDeckEditorObserver::OnAssetEditorRequestClose(UObject* InAsset, EAs
 	{
 		FUiCommandRegistry::Get().UnregisterToolkitCommandList(EditorInstance);
 	}
-	else
-	{
-		UE_LOG(LogCommandDeck, Warning, TEXT("Failed to find editor instance for asset: assetName=%s"), *InAsset->GetName());
-	}
 #endif
 }
